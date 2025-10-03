@@ -1,30 +1,26 @@
 ---
-const EDUCATION = [
+import EducationItem from "@/components/EducationItem.astro";
+
+interface EducationEntry {
+  date: string;
+  title: string;
+  institution: string;
+  description: string;
+}
+
+const EDUCATION: EducationEntry[] = [
   {
-    date: "2015 – 2019",
-    degree: "Grado en Ingeniería Informática",
-    institution: "Universidad de León",
+    date: "2024",
+    title: "Grado en Ingeniería Informática",
+    institution: "Universidad de Valladolid",
     description:
-      "Especializado en desarrollo de software y diseño de interfaces, con proyectos centrados en aplicaciones web modernas.",
+      "Formación orientada a la ingeniería de software y el desarrollo de aplicaciones, con bases sólidas en algoritmos, bases de datos y computación, así como conocimientos en seguridad y redes.",
   },
 ];
 ---
 
 <ol class="space-y-6">
-  {
-    EDUCATION.map((edu) => (
-      <li class="rounded-xl border border-border bg-card/40 p-6 shadow-sm transition-colors hover:border-primary/40 hover:bg-card/60">
-        <div class="flex items-start justify-between gap-4">
-          <h3 class="text-lg font-semibold text-foreground">{edu.degree}</h3>
-          <time class="text-sm font-medium text-muted-foreground">
-            {edu.date}
-          </time>
-        </div>
-        <p class="mt-2 text-sm text-muted-foreground">{edu.institution}</p>
-        <p class="mt-4 text-muted-foreground leading-relaxed">
-          {edu.description}
-        </p>
-      </li>
-    ))
-  }
+  {EDUCATION.map((edu) => (
+    <EducationItem {...edu} />
+  ))}
 </ol>

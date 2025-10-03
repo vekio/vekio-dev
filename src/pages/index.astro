@@ -3,16 +3,17 @@ import Layout from "@/layouts/BaseLayout.astro";
 
 import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
-import Tools from "@/components/Tools.astro";
+import Stack from "@/components/Stack.astro";
 import Education from "@/components/Education.astro";
 import Certificates from "@/components/Certificates.astro";
 import Hero from "@/components/Hero.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 
+import Qualifications from "@/components/Qualifications.astro";
+
 import ExperienceIcon from "@/icons/Experience.astro";
 import ProjectIcon from "@/icons/Project.astro";
-import EducationIcon from "@/icons/Education.astro";
-import ToolsIcon from "@/icons/Tools.astro";
+import StackIcon from "@/icons/Stack.astro";
 
 const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
 const description = "Contrata a Alberto Castañeiras Folgueral";
@@ -25,7 +26,8 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
     </SectionContainer> -->
 
     {/* Experience */}
-    <section id="experience" class="py-24 px-6 bg-card/30">
+    {
+      /* <section id="experience" class="py-24 px-6 bg-card/30">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16">
           <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
@@ -35,10 +37,12 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
         </div>
         <Experience />
       </div>
-    </section>
+    </section> */
+    }
 
     {/* Projects */}
-    <section id="projects" class="pb-24 px-6">
+    {
+      /* <section id="projects" class="pb-24 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16">
           <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
@@ -52,48 +56,30 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
         </div>
         <Projects />
       </div>
-    </section>
+    </section> */
+    }
 
-    {/* Tools */}
-    <section id="tools" class="pb-24 px-6 bg-card/20">
+    {/* Stack */}
+    {
+      /*<section id="stack" class="pb-24 px-6 bg-card/20">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16">
           <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
-            <ToolsIcon class="size-6" />
-            Herramientas
+            <StackIcon class="size-6" />
+            Stack
           </h2>
           <p class="text-muted-foreground max-w-2xl">
-            Tecnologías y utilidades que uso a diario, con una estimación de mi familiaridad actual.
+            Tecnologías y utilidades que uso a diario, con una estimación de mi
+            familiaridad actual.
           </p>
         </div>
-        <Tools />
+        <Stack />
       </div>
     </section>
+    */
+    }
 
-    {/* Education & Certification */}
-    <section id="education" class="pb-24 px-6">
-      <div class="max-w-6xl mx-auto">
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
-            <EducationIcon class="size-6" />
-            Educación y certificados
-          </h2>
-          <p class="text-muted-foreground max-w-2xl">
-            Formación académica completada y credenciales en proceso para seguir
-            ampliando mis conocimientos.
-          </p>
-        </div>
-        <div class="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h3 class="mb-6 text-lg font-semibold text-foreground">Educación</h3>
-            <Education />
-          </div>
-          <div>
-            <h3 class="mb-6 text-lg font-semibold text-foreground">Certificaciones</h3>
-            <Certificates />
-          </div>
-        </div>
-      </div>
-    </section>
+    {/* Qualifications */}
+    <Qualifications />
   </main>
 </Layout>
