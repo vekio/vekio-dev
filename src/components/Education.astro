@@ -1,11 +1,13 @@
 ---
-import EducationItem from "@/components/EducationItem.astro";
+import QualificationItem from "@/components/QualificationItem.astro";
 
 interface EducationEntry {
   date: string;
   title: string;
   institution: string;
-  description: string;
+  description?: string;
+  link?: string;
+  linkLabel?: string;
 }
 
 const EDUCATION: EducationEntry[] = [
@@ -19,8 +21,17 @@ const EDUCATION: EducationEntry[] = [
 ];
 ---
 
-<ol class="space-y-6">
-  {EDUCATION.map((edu) => (
-    <EducationItem {...edu} />
-  ))}
+<ol>
+  {
+    EDUCATION.map((edu) => (
+      <QualificationItem
+        title={edu.title}
+        date={edu.date}
+        meta={edu.institution}
+        description={edu.description}
+        link={edu.link}
+        linkLabel={edu.linkLabel}
+      />
+    ))
+  }
 </ol>
