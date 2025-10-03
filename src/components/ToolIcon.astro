@@ -1,0 +1,41 @@
+---
+import AstroIcon from "@/icons/tech/Astro.astro";
+import DockerIcon from "@/icons/tech/Docker.astro";
+import NodeIcon from "@/icons/tech/Node.astro";
+import ReactIcon from "@/icons/tech/React.astro";
+import TailwindIcon from "@/icons/tech/Tailwind.astro";
+import TypeScriptIcon from "@/icons/tech/TypeScript.astro";
+
+interface Props {
+  name: string;
+  color: string;
+}
+
+const { name, color } = Astro.props as Props;
+
+const icons: Record<string, any> = {
+  react: ReactIcon,
+  astro: AstroIcon,
+  typescript: TypeScriptIcon,
+  node: NodeIcon,
+  tailwind: TailwindIcon,
+  docker: DockerIcon,
+};
+
+const key = name.toLowerCase();
+const IconComponent = icons[key];
+---
+
+<div
+  class="flex size-12 items-center justify-center rounded-xl shadow-inner"
+  style={`background:${color}`}
+  aria-hidden="true"
+>
+  {
+    IconComponent ? (
+      <IconComponent class="size-6 text-white" />
+    ) : (
+      <span class="text-sm font-semibold text-white">{name.slice(0, 2)}</span>
+    )
+  }
+</div>
