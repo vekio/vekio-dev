@@ -1,0 +1,55 @@
+---
+type Certificate = {
+  date: string;
+  title: string;
+  issuer: string;
+  link?: string;
+};
+
+const CERTIFICATES: Certificate[] = [];
+---
+
+{
+  !CERTIFICATES.length && (
+    <p class="rounded-lg border border-dashed border-primary/30 bg-card/40 p-6 text-sm text-muted-foreground">
+      Próximamente añadiré certificados relevantes una vez completados.
+    </p>
+  )
+}
+
+{
+  CERTIFICATES.length > 0 && (
+    <ol class="space-y-6">
+      {
+        CERTIFICATES.map((cert) => (
+          <li class="group flex items-start gap-4">
+            <time class="mt-1 w-24 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              {cert.date}
+            </time>
+            <div class="relative flex-1 border-s border-primary/30 ps-5">
+              <span class="absolute left-0 top-2 size-2.5 -translate-x-1/2 rounded-full border border-background bg-primary transition-transform group-hover:scale-110" />
+              <div class="flex items-baseline justify-between gap-3">
+                <h3 class="text-base font-medium text-foreground transition-colors group-hover:text-primary">
+                  {cert.title}
+                </h3>
+                {
+                  cert.link && (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-medium text-primary hover:text-primary/80"
+                    >
+                      Ver credencial
+                    </a>
+                  )
+                }
+              </div>
+              <p class="text-sm text-muted-foreground">{cert.issuer}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  )
+}

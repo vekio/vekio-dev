@@ -1,0 +1,31 @@
+---
+const EDUCATION = [
+  {
+    date: "2015 – 2019",
+    degree: "Grado en Ingeniería Informática",
+    institution: "Universidad de León",
+    description:
+      "Especializado en desarrollo de software y diseño de interfaces, con proyectos centrados en aplicaciones web modernas.",
+  },
+];
+---
+
+<ol class="space-y-8">
+  {
+    EDUCATION.map((edu) => (
+      <li class="group flex items-start gap-6">
+        <time class="mt-1 w-28 shrink-0 text-sm font-medium text-muted-foreground">
+          {edu.date}
+        </time>
+        <div class="relative flex-1 border-s border-primary/30 ps-6">
+          <span class="absolute left-0 top-2 size-3 -translate-x-1/2 rounded-full border-2 border-background bg-primary ring-2 ring-primary/20 transition-all group-hover:scale-125 group-hover:ring-4" />
+          <h3 class="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
+            {edu.degree}
+          </h3>
+          <p class="mb-3 text-sm text-muted-foreground">{edu.institution}</p>
+          <p class="text-muted-foreground leading-relaxed">{edu.description}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
