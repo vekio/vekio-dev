@@ -1,31 +1,39 @@
 ---
 import "@fontsource-variable/onest";
+
 import "@/styles/global.css";
 
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 
-const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
-const description = "Contrata a Alberto Castañeiras Folgueral";
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
+
+  <body class="min-h-screen flex flex-col">
     <!-- <div
-      class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div> -->
-    <Header />
+    <!-- <Header /> -->
     <slot />
-    <Footer />
+    <!-- <Footer /> -->
   </body>
 </html>

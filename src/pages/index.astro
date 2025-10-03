@@ -1,68 +1,25 @@
 ---
 import Layout from "@/layouts/BaseLayout.astro";
-import Badge from "@/components/Badge.astro";
-import Social from "@/components/Social.astro";
+
 import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
+import Hero from "@/components/Hero.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 
-import LinkedInIcon from "@/icons/LinkedIn.astro";
-import GithubIcon from "@/icons/Github.astro";
-import MailIcon from "@/icons/Mail.astro";
 import ExperienceIcon from "@/icons/Experience.astro";
 import ProjectIcon from "@/icons/Project.astro";
+import ExperienceItem from "@/components/ExperienceItem.astro";
+
+const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
+const description = "Contrata a Alberto Castañeiras Folgueral";
 ---
 
-<Layout>
-  <main class="px-4">
-    <SectionContainer class="py-44 pb-24">
-      <img
-        class="rounded-full size-12 mb-4"
-        src="https://imgs.search.brave.com/4oCmeCWLmpRxt-dd8vRj-n3iN_LvmUdSV_QLPgOMVNw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzFjLzg1/LzJlLzFjODUyZWE5/MjgxNTBkZmNmNTRj/NTQ1N2RiY2EwYTM1/LmpwZw"
-        alt="photo"
-      />
-
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex items-center flex-row gap-x-4 pb-4"
-      >
-        Hola soy Alberto <Badge>Disponible</Badge>
-      </h1>
-
-      <h2 class="text-2xl text-wrap">
-        Desarrollador full-stack con 5 años de experiencia. Trabajo com Data
-        Analyst, .NET y Angular. Aprendiendo Go y herramientas DevOps.
-      </h2>
-
-      <nav class="flex gap-x-4 mt-6">
-        <Social href="https://www.linkedin.com/in/alberto-castaneiras/">
-          <LinkedInIcon class="size-6" />
-          LinkedIn
-        </Social>
-        <Social href="https://github.com/vekio/">
-          <GithubIcon class="size-6" />
-          GitHub
-        </Social>
-        <Social href="https://www.linkedin.com/in/alberto-castaneiras/">
-          <MailIcon class="size-6" />
-          root@vekio.dev
-        </Social>
-      </nav>
+<Layout title={title} description={description}>
+  <main>
+    <SectionContainer id="hero" class="max-w-[1400px] py-12 md:py-32">
+      <Hero />
     </SectionContainer>
 
-    <SectionContainer id="experience">
-      <h2 class="text-3xl font-semibold mb-6 flex items-center gap-x-4">
-        <ExperienceIcon class="size-6" />
-        Experiencia laboral
-      </h2>
-      <Experience />
-    </SectionContainer>
-
-    <SectionContainer id="projects">
-      <h2 class="text-3xl font-semibold mb-6 flex items-center gap-x-4">
-        <ProjectIcon class="size-6" />
-        Proyectos
-      </h2>
-      <Projects />
-    </SectionContainer>
+    <Experience />
   </main>
 </Layout>

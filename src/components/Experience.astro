@@ -1,9 +1,10 @@
 ---
-import ExperienceItem from "@/components/ExperienceItem.astro";
+import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
   {
     date: "Actualmente...",
+    location: "remote",
     title: "Application UI code in Tailwind CSS",
     company: "Mercanza",
     description:
@@ -12,6 +13,7 @@ const EXPERIENCE = [
   },
   {
     date: "March 2022",
+    location: "remote",
     title: "Marketing UI design in Figma",
     company: "Mercanza",
     description:
@@ -20,6 +22,7 @@ const EXPERIENCE = [
   },
   {
     date: "April 2020",
+    location: "Ponferrada",
     title: "E-Commerce UI code in Tailwind CSS",
     company: "Mercanza",
     description:
@@ -29,10 +32,10 @@ const EXPERIENCE = [
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol>
   {
     EXPERIENCE.map((exp) => (
-      <li class="mb-10 ms-4">
+      <li>
         <ExperienceItem {...exp} />
       </li>
     ))
