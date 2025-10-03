@@ -16,10 +16,19 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
 
 <Layout title={title} description={description}>
   <main>
-    <SectionContainer id="hero" class="max-w-[1400px] py-12 md:py-32">
+    <!-- <SectionContainer id="hero" class="max-w-[1400px] py-12 md:py-32">
       <Hero />
-    </SectionContainer>
+    </SectionContainer> -->
 
-    <Experience />
+    {/* Experience */}
+    <section id="experience" class="py-24 px-6 bg-card/30">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="flex items-center gap-x-4 text-3xl font-bold mb-16">
+          <ExperienceIcon class="size-6" />
+          Experiencia
+        </h2>
+        <Experience />
+      </div>
+    </section>
   </main>
 </Layout>
