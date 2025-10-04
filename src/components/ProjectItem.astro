@@ -1,0 +1,79 @@
+---
+import { type ProjectTag } from "@/data/projectTags";
+
+import TagBadge from "@/components/TagBadge.astro";
+
+import GithubIcon from "@/icons/Github.astro";
+import ExternalLinkIcon from "@/icons/ExternalLink.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  tags: ProjectTag[];
+  github: string;
+  link?: string;
+}
+
+const { title, description, image, tags, github, link } = Astro.props as Props;
+---
+
+<article
+  class="group overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50"
+>
+  <div class="relative aspect-video overflow-hidden bg-muted">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
+
+  <div class="p-6">
+    <h3
+      class="mb-3 text-xl font-semibold transition-colors group-hover:text-primary"
+    >
+      {title}
+    </h3>
+
+    <p class="mb-4 leading-relaxed text-muted-foreground">{description}</p>
+
+    {
+      tags.length > 0 && (
+        <ul class="mb-6 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li>
+              <TagBadge tag={tag} size="sm" />
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <div class="flex items-center gap-3">
+      <a
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-md border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2"
+      >
+        <GithubIcon class="size-4" />
+        Código
+      </a>
+      {
+        link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
+          >
+            <ExternalLinkIcon class="size-4" />
+            Demo
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>
