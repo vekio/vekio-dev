@@ -1,43 +1,76 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
 
-const EXPERIENCE = [
+import ExperienceIcon from "@/icons/Experience.astro";
+
+interface ExperienceEntry {
+  period: string;
+  title: string;
+  company: string;
+  description: string;
+  location: string;
+  responsibilities: string[];
+  skillsAcquired: string[];
+}
+
+const EXPERIENCE: ExperienceEntry[] = [
   {
-    date: "Actualmente...",
-    location: "remote",
-    title: "Application UI code in Tailwind CSS",
-    company: "Mercanza",
+    period: "Enero 2024 – Actualidad",
+    location: "Remote",
+    title: "Full-Stack Developer",
+    company: "NTT Data",
     description:
-      "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-    link: "#",
+      "Desarrollador full-stack en una plataforma bancaria interna, liderando el desarrollo técnico y coordinando la integración entre backend (.NET), frontend (Angular) y Azure DevOps, dentro de un entorno ágil Scrum.",
+    responsibilities: [
+      "Desarrollo del frontend en Angular y del backend en .NET, garantizando la calidad y mantenibilidad del código.",
+      "Liderazgo técnico y coordinación del equipo de desarrollo.",
+      "Participación en decisiones de arquitectura y conexión con sistemas internos.",
+    ],
+    skillsAcquired: [
+      "Experiencia en arquitecturas modulares y desarrollo escalable.",
+      "Capacidad para liderar equipos técnicos y revisar código con enfoque de calidad.",
+      "Visión global del proceso DevOps y automatización de despliegues.",
+    ],
   },
   {
-    date: "March 2022",
-    location: "remote",
-    title: "Marketing UI design in Figma",
+    period: "Septiembre 2020 – Diciembre 2023",
+    location: "Ponferrada, España",
+    title: "Full-Stack / BI Developer",
     company: "Mercanza",
     description:
-      "All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.",
-    link: "#",
-  },
-  {
-    date: "April 2020",
-    location: "Ponferrada",
-    title: "E-Commerce UI code in Tailwind CSS",
-    company: "Mercanza",
-    description:
-      "Get started with dozens of web components and interactive elements built on top of Tailwind CSS.",
-    link: "#",
+      "Desarrollador de software y business intelligence especializado en soluciones empresariales a medida, combinando desarrollo backend, frontend y analítica de datos. Evolución desde rol júnior hasta coordinación técnica, con comunicación directa con clientes y liderazgo parcial de proyectos.",
+    responsibilities: [
+      "Desarrollo de cuadros de mando en Qlik Sense.",
+      "Diseño de modelos de datos y pipelines ETL, optimizando procesos de análisis y reporting.",
+      "Desarrollo de soluciones empresariales a medida combinando backend (.NET) y frontend (Angular)",
+      "Colaboración directa con clientes en toma de requisitos, validación de entregas y soporte funcional.",
+      "Coordinación técnica y mentoría de otros desarrolladores en proyectos paralelos.",
+    ],
+    skillsAcquired: [
+      "Integración de análisis de negocio y desarrollo web.",
+      "Experiencia completa en el ciclo de vida del desarrollo de software.",
+      "Comunicación fluida con perfiles no técnicos y gestión ágil de entregas.",
+    ],
   },
 ];
 ---
 
-<ol>
-  {
-    EXPERIENCE.map((exp) => (
-      <li>
-        <ExperienceItem {...exp} />
-      </li>
-    ))
-  }
-</ol>
+<section id="experience" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
+        <ExperienceIcon class="size-6" />
+        Experiencia
+      </h2>
+    </div>
+    <ol class="space-y-12 border-s border-primary/30">
+      {
+        EXPERIENCE.map((exp) => (
+          <li class="group relative pl-8">
+            <ExperienceItem {...exp} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
