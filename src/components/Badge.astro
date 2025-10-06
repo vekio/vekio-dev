@@ -1,5 +1,36 @@
+---
+import type { TagDefinition } from "@/data/projectTags";
+
+interface Props {
+  tag: TagDefinition;
+  size?: "sm" | "md" | "lg" | "xl" | "xxl";
+}
+
+const sizeClasses = {
+  sm: "px-2 py-1 text-[10px]",
+  md: "px-3 py-1 text-[11px]",
+  lg: "px-3.5 py-1.5 text-[12px]",
+  xl: "px-4 py-1.5 text-[13px]",
+  xxl: "px-5 py-2 text-[14px]",
+} as const;
+
+const iconSizes = {
+  sm: "size-3",
+  md: "size-4",
+  lg: "size-5",
+  xl: "size-6",
+  xxl: "size-7",
+} as const;
+
+const { tag, size = "md" } = Astro.props as Props;
+const Icon = tag.icon;
+const iconClass = tag.iconClass ?? iconSizes[size];
+const labelClass = tag.labelClass ?? "";
+---
+
 <span
-  class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300"
+  class={`inline-flex items-center gap-2 rounded-full font-semibold uppercase tracking-[0.08em] ${sizeClasses[size]} ${tag.chipClass}`}
 >
-  <slot />
+  {Icon && <Icon class={iconClass} />}
+  <span class={`whitespace-nowrap ${labelClass}`}>{tag.label}</span>
 </span>

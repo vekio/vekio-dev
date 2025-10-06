@@ -1,43 +1,48 @@
-import GolangIcon from "@/icons/tech/Golang.astro"
-import HTMXIcon from "@/icons/tech/HTMX.astro"
-import TemplIcon from "@/icons/tech/Templ.astro"
-import TailwindIcon from "@/icons/tech/Tailwind.astro"
+
+import GolangIcon from "@/icons/tech/Golang.astro";
+import HTMXIcon from "@/icons/tech/HTMX.astro";
+import TailwindIcon from "@/icons/tech/Tailwind.astro";
+import TemplIcon from "@/icons/tech/Templ.astro";
 
 export interface TagDefinition {
   id: string;
   label: string;
-  class: string;
-  icon?: any;
+  chipClass: string;
+  icon: any;
+  iconClass: string;
+  labelClass?: string;
 }
 
-const PROJECT_TAGS = {
+export const TAGS = {
   GO: {
     id: "GO",
-    label: "Golang",
-    class: "bg-[#045D75] text-white",
+    label: "Go",
+    chipClass: "bg-[#045D75] text-white",
     icon: GolangIcon,
+    iconClass: "size-4 text-white",
   },
   HTMX: {
     id: "HTMX",
     label: "htmx",
-    class: "bg-white text-black",
+    chipClass: "bg-white text-[#1E293B]",
     icon: HTMXIcon,
+    iconClass: "size-4 text-[#1E293B]",
   },
   TEMPL: {
     id: "TEMPL",
     label: "templ",
-    class: "bg-[#242526] text-[#66D0DD]",
+    chipClass: "bg-[#1C1F15] text-[#66D0DD]",
     icon: TemplIcon,
+    iconClass: "size-4 text-[#DBBD30]",
   },
   TAILWINDCSS: {
     id: "TAILWINDCSS",
     label: "Tailwind CSS",
-    class: "bg-[#0F172A] text-[#38BDF8]",
+    chipClass: "bg-[#0F172A] text-[#38BDF8]",
     icon: TailwindIcon,
+    iconClass: "size-4 text-[#38BDF8]",
   },
 } satisfies Record<string, TagDefinition>;
 
-export type ProjectTagKey = keyof typeof PROJECT_TAGS;
-export type ProjectTag = (typeof PROJECT_TAGS)[ProjectTagKey];
-
-export const TAGS = PROJECT_TAGS;
+export type ProjectTagKey = keyof typeof TAGS;
+export type ProjectTag = (typeof TAGS)[ProjectTagKey];

@@ -1,7 +1,7 @@
 ---
 import { type ProjectTag } from "@/data/projectTags";
 
-import TagBadge from "@/components/TagBadge.astro";
+import Badge from "@/components/Badge.astro";
 
 import GithubIcon from "@/icons/Github.astro";
 import ExternalLinkIcon from "@/icons/ExternalLink.astro";
@@ -44,7 +44,7 @@ const { title, description, image, tags, github, link } = Astro.props as Props;
         <ul class="mb-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <li>
-              <TagBadge tag={tag} size="sm" />
+              <Badge tag={tag} size="sm" />
             </li>
           ))}
         </ul>

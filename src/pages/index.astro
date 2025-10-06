@@ -1,17 +1,11 @@
 ---
 import Layout from "@/layouts/BaseLayout.astro";
 
+import Hero from "@/components/Hero.astro";
 import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
-import Stack from "@/components/Stack.astro";
-import Education from "@/components/Education.astro";
-import Certificates from "@/components/Certificates.astro";
-import Hero from "@/components/Hero.astro";
-import SectionContainer from "@/components/SectionContainer.astro";
-
 import Qualifications from "@/components/Qualifications.astro";
-
-import StackIcon from "@/icons/Stack.astro";
+import Stack from "@/components/Stack.astro";
 
 const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
 const description = "Contrata a Alberto Castañeiras Folgueral";
@@ -30,6 +24,7 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
     <Projects />
 
     {/* Stack */}
+    <Stack />
     {
       /*<section id="stack" class="pb-24 px-6 bg-card/20">
       <div class="max-w-6xl mx-auto">
