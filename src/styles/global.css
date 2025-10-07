@@ -138,3 +138,28 @@ html {
     scroll-behavior: auto;
   }
 }
+
+@layer utilities {
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      var(--color-foreground) 0%,
+      var(--color-primary) 50%,
+      var(--color-foreground) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 3s infinite;
+  }
+
+}
