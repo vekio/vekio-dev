@@ -1,68 +1,92 @@
 ---
 import { Image } from "astro:assets";
 
-import Social from "@/components/Social.astro";
+import { SOCIAL_LINKS } from "@/data/socials";
 
-import LinkedInIcon from "@/icons/LinkedIn.astro";
-import GithubIcon from "@/icons/Github.astro";
-import MailIcon from "@/icons/Mail.astro";
+import Social from "@/components/Social.astro";
+import MapIcon from "@/icons/Map.astro";
 
 import cvImage from "@/assets/cv.jpg";
-
-const SOCIAL_LINKS = [
-  {
-    href: "https://github.com/vekio/",
-    label: "GitHub",
-    icon: GithubIcon,
-  },
-  {
-    href: "https://www.linkedin.com/in/alberto-castaneiras/",
-    label: "LinkedIn",
-    icon: LinkedInIcon,
-  },
-  {
-    href: "mailto:root@vekio.dev",
-    label: "root@vekio.dev",
-    icon: MailIcon,
-  },
-];
 ---
 
 <section
   id="hero"
-  class="px-6 py-16 md:py-24 lg:min-h-screen lg:flex lg:items-center lg:justify-center"
+  class="px-6 py-16 md:py-24 lg:flex lg:min-h-screen lg:items-center lg:justify-center"
 >
   <div
     class="mx-auto grid max-w-6xl items-start gap-12 md:gap-16 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]"
   >
     <div class="space-y-8">
-      <div>
+      <div class="space-y-3">
         <h1 class="shimmer-text text-5xl font-bold text-balance lg:text-7xl">
           Alberto Castañeiras
         </h1>
-        <p class="mt-2 text-xl text-muted-foreground lg:text-2xl">
-          Ingeniero de Software
-        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <p class="text-xl text-muted-foreground lg:text-2xl">
+            Ingeniero de Software
+          </p>
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs text-primary"
+          >
+            <span class="relative flex size-2.5">
+              <span
+                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60"
+              ></span>
+              <span
+                class="relative inline-flex size-2.5 rounded-full bg-primary"
+              ></span>
+            </span>
+            <span class="font-medium tracking-wide">Disponible</span>
+          </div>
+        </div>
       </div>
 
       <div
-        class="text-lg text-muted-foreground leading-relaxed max-w-lg space-y-4"
+        class="max-w-lg space-y-4 text-lg leading-relaxed text-muted-foreground"
       >
         <p>
           👋 Buen diseño. Código limpio. Software que funciona. Curioso y en
-          aprendizaje constante, combino experiencia en desarrollo web con <strong
-            >.NET</strong
-          >,
-          <strong>Angular</strong> y BI con <strong>Qlik</strong>.
+          aprendizaje constante, combino experiencia en desarrollo web con
+          <strong>.NET</strong>, <strong>Angular</strong> y BI con
+          <strong>Qlik</strong>.
         </p>
         <p>
-          Me apasionan <strong>Go</strong>, la automatización con <strong
-            >IA</strong
-          > y el
-          <strong>self-hosting</strong>. Mantengo un <strong>homelab</strong> donde
-          experimento, rompo cosas y aprendo cómo funcionan de verdad.
+          Me apasionan <strong>Go</strong>, la automatización con
+          <strong>IA</strong> y el <strong>self-hosting</strong>. Mantengo un
+          <strong>homelab</strong> donde experimento, rompo cosas y aprendo cómo
+          funcionan de verdad.
         </p>
       </div>
+
+      {
+        /*
+        <div class="space-y-2">
+          <p class="text-sm font-medium text-muted-foreground">
+            Abierto a oportunidades:
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
+            >
+              <MapIcon class="size-4 text-primary" />
+              <span>Remote - España</span>
+            </div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
+            >
+              <MapIcon class="size-4 text-primary" />
+              <span>Híbrido - Irlanda</span>
+            </div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
+            >
+              <MapIcon class="size-4 text-primary" />
+              <span>Remote - Europa</span>
+            </div>
+          </div>
+        </div>
+      */
+      }
 
       <div class="flex flex-wrap items-center gap-3 pt-4">
         {SOCIAL_LINKS.map((social) => <Social {...social} />)}
@@ -70,14 +94,13 @@ const SOCIAL_LINKS = [
     </div>
 
     <div class="hidden lg:flex justify-end">
-      <div class="relative group">
+      <div class="group relative rotate-3">
         <div
-          class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 to-primary/20 blur-xl opacity-75 transition duration-500 group-hover:opacity-100"
+          class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/50 to-primary/20 opacity-75 blur-xl transition duration-500 group-hover:opacity-100"
         >
         </div>
-
         <div
-          class="relative rounded-2xl border border-border bg-card p-6 shadow-2xl"
+          class="relative rounded-2xl border border-border bg-card p-4 shadow-2xl"
         >
           <div
             class="aspect-[3/4] w-[14.5rem] overflow-hidden rounded-xl xl:w-[16.75rem]"

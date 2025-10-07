@@ -6,6 +6,8 @@ import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
 import Qualifications from "@/components/Qualifications.astro";
 import Stack from "@/components/Stack.astro";
+import Contact from "@/components/Contact.astro";
+import Footer from "@/components/Footer.astro";
 
 const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
 const description = "Contrata a Alberto Castañeiras Folgueral";
@@ -13,14 +15,12 @@ const description = "Contrata a Alberto Castañeiras Folgueral";
 
 <Layout title={title} description={description}>
   <main>
-    <!-- <SectionContainer id="hero" class="max-w-[1400px] py-12 md:py-32">
-      <Hero />
-    </SectionContainer> -->
-
     <Hero />
     <Experience />
     {/* <Projects /> */}
     {/* <Stack /> */}
     <Qualifications />
+    <Contact />
   </main>
+  <Footer />
 </Layout>
