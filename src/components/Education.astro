@@ -1,0 +1,37 @@
+---
+import QualificationItem from "@/components/QualificationItem.astro";
+
+interface EducationEntry {
+  date: string;
+  title: string;
+  institution: string;
+  description?: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+const EDUCATION: EducationEntry[] = [
+  {
+    date: "2024",
+    title: "Grado en Ingeniería Informática",
+    institution: "Universidad de Valladolid",
+    description:
+      "Formación orientada a la ingeniería de software y el desarrollo de aplicaciones, con bases sólidas en algoritmos, bases de datos y computación, así como conocimientos en seguridad y redes.",
+  },
+];
+---
+
+<ol>
+  {
+    EDUCATION.map((edu) => (
+      <QualificationItem
+        title={edu.title}
+        date={edu.date}
+        meta={edu.institution}
+        description={edu.description}
+        link={edu.link}
+        linkLabel={edu.linkLabel}
+      />
+    ))
+  }
+</ol>

@@ -1,0 +1,22 @@
+---
+import { primaryEmail } from "@/data/socials";
+---
+
+<section id="contacto" class="px-6 py-24">
+  <div class="mx-auto max-w-4xl space-y-8">
+    <div>
+      <h2 class="text-3xl font-bold text-balance">Contacto</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+        ¿Te interesa hablar de automatización, Go o self-hosting? Estoy abierto
+        a colaborar en proyectos, explorar nuevas soluciones o conocer
+        oportunidades profesionales. Puedes escribirme a
+        <a
+          href={`mailto:${primaryEmail}`}
+          class="font-semibold text-primary hover:text-primary/80"
+        >
+          {primaryEmail}
+        </a>.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/BaseLayout.astro";
+
+import Hero from "@/components/Hero.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
+import Qualifications from "@/components/Qualifications.astro";
+import Stack from "@/components/Stack.astro";
+import Contact from "@/components/Contact.astro";
+
+const title = "Portfolio de Alberto Castañeiras Folgueral - Software Engineer";
+const description = "Contrata a Alberto Castañeiras Folgueral";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <Hero />
+    <Experience />
+    {/* <Projects /> */}
+    {/* <Stack /> */}
+    <Qualifications />
+    <Contact />
+  </main>
+</Layout>

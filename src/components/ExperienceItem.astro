@@ -1,0 +1,96 @@
+---
+import ChevronDownIcon from "@/icons/ChevronDown.astro";
+
+interface Props {
+  period: string;
+  title: string;
+  company: string;
+  description: string;
+  location: string;
+  responsibilities: string[];
+  skillsAcquired: string[];
+}
+
+const {
+  period,
+  title,
+  company,
+  description,
+  location,
+  responsibilities = [],
+  skillsAcquired = [],
+} = Astro.props as Props;
+
+const hasDetails = responsibilities.length > 0 || skillsAcquired.length > 0;
+---
+
+<div
+  id="dot"
+  class="absolute size-3 mt-1.5 -start-1.5 rounded-full bg-primary border-2 border-background ring-2 ring-primary/20 transition-all group-hover:ring-4 group-hover:scale-125"
+>
+</div>
+
+<article class="space-y-4">
+  <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">
+    <span>{title}</span>
+    <span class="text-muted-foreground/50">•</span>
+    <span>{company}</span>
+  </h3>
+
+  <div
+    class="flex flex-wrap items-center gap-2 text-xs italic text-muted-foreground/80"
+  >
+    <time class="font-medium">{period}</time>
+    <span class="text-muted-foreground/50">•</span>
+    <span>{location}</span>
+  </div>
+
+  <p class="text-muted-foreground leading-relaxed text-balance">
+    {description}
+  </p>
+
+  {
+    hasDetails && (
+      <details class="group/details mt-4 space-y-4">
+        <summary class="flex cursor-pointer items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 ">
+          <span>Ver más detalles</span>
+          <ChevronDownIcon class="size-4 transition-transform group-open/details:rotate-180" />
+        </summary>
+
+        <div class="space-y-4 pt-4 border-t border-primary/20">
+          {responsibilities.length > 0 && (
+            <section>
+              <h4 class="text-sm font-semibold text-foreground mb-2">
+                Responsabilidades:
+              </h4>
+              <ul class="space-y-1">
+                {responsibilities.map((resp) => (
+                  <li class="text-sm text-muted-foreground flex gap-2">
+                    <span class="text-primary">•</span>
+                    <span>{resp}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {skillsAcquired.length > 0 && (
+            <section>
+              <h4 class="text-sm font-semibold text-foreground mb-2">
+                Capacidades adquiridas:
+              </h4>
+              <ul class="space-y-1">
+                {skillsAcquired.map((skill) => (
+                  <li class="text-sm text-muted-foreground flex gap-2">
+                    <span class="text-primary">•</span>
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+      </details>
+    )
+  }
+</article>

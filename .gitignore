@@ -1,0 +1,11 @@
+# direnv
+.direnv/
+
+# dependencies
+node_modules/
+
+# generated types
+.astro/
+
+# build
+dist/

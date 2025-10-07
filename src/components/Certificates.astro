@@ -1,0 +1,58 @@
+---
+import QualificationItem from "@/components/QualificationItem.astro";
+
+interface Certificate {
+  date: string;
+  title: string;
+  issuer: string;
+  description?: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+const CERTIFICATES: Certificate[] = [
+  // {
+  //   date: "2023",
+  //   title: "AWS Certified Cloud Practitioner",
+  //   issuer: "Amazon Web Services",
+  //   description: "Fundamentos de AWS, mejores prácticas de nube y arquitectura global.",
+  //   link: "https://aws.amazon.com/certification/",
+  //   linkLabel: "Ver credencial",
+  // },
+  // {
+  //   date: "2022",
+  //   title: "Scrum Foundation Professional Certificate",
+  //   issuer: "CertiProf",
+  //   description: "Marco Scrum aplicado a equipos de producto y facilitación de ceremonias.",
+  //   link: "https://certiprof.com/pages/scrum-foundation-professional-certificate",
+  //   linkLabel: "Ver certificación",
+  // },
+];
+
+const hasCertificates = CERTIFICATES.length > 0;
+---
+
+{
+  !hasCertificates && (
+    <p class="rounded-lg border border-dashed border-primary/30 bg-card/40 p-6 text-sm text-muted-foreground">
+      Próximamente añadiré certificados relevantes una vez completados.
+    </p>
+  )
+}
+
+{
+  hasCertificates && (
+    <ol>
+      {CERTIFICATES.map((cert) => (
+        <QualificationItem
+          title={cert.title}
+          date={cert.date}
+          meta={cert.issuer}
+          description={cert.description}
+          link={cert.link}
+          linkLabel={cert.linkLabel}
+        />
+      ))}
+    </ol>
+  )
+}
