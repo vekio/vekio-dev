@@ -2,11 +2,14 @@
 import { Image } from "astro:assets";
 
 import { SOCIAL_LINKS } from "@/data/socials";
+import resume from "@resume";
 
 import Social from "@/components/Social.astro";
 import MapIcon from "@/icons/Map.astro";
 
 import cvImage from "@/assets/portfolio.jpg";
+
+const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
 ---
 
 <section
@@ -19,7 +22,7 @@ import cvImage from "@/assets/portfolio.jpg";
     <div class="space-y-8">
       <div class="space-y-3">
         <h1 class="shimmer-text text-5xl font-bold text-balance lg:text-7xl">
-          Alberto Castañeiras
+          {heroName}
         </h1>
         <div class="flex flex-wrap items-center gap-3">
           <p class="text-xl text-muted-foreground lg:text-2xl">
@@ -107,7 +110,7 @@ import cvImage from "@/assets/portfolio.jpg";
           >
             <Image
               src={cvImage}
-              alt="Currículum de Alberto Castañeiras"
+              alt={`Currículum de ${heroName}`}
               class="h-full w-full object-cover"
               loading="lazy"
               decoding="async"
