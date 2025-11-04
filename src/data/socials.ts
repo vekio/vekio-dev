@@ -8,7 +8,7 @@ export interface SocialLink {
   icon: any;
 }
 
-export const primaryEmail = "contact@vekio.dev";
+export const primaryEmail = "alberto@vekio.dev";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
