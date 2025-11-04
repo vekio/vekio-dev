@@ -2,14 +2,14 @@
 import { Image } from "astro:assets";
 
 import { SOCIAL_LINKS } from "@/data/socials";
-import resume from "@resume";
+// import resume from "@resume";
 
 import Social from "@/components/Social.astro";
 import MapIcon from "@/icons/Map.astro";
 
 import cvImage from "@/assets/portfolio.jpg";
 
-const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
+// const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
 ---
 
 <section
@@ -22,13 +22,13 @@ const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
     <div class="space-y-8">
       <div class="space-y-3">
         <h1 class="shimmer-text text-5xl font-bold text-balance lg:text-7xl">
-          {heroName}
+          Alberto Castañeiras
         </h1>
         <div class="flex flex-wrap items-center gap-3">
           <p class="text-xl text-muted-foreground lg:text-2xl">
             Ingeniero de Software
           </p>
-          <div
+          <!-- <div
             class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs text-primary"
           >
             <span class="relative flex size-2.5">
@@ -40,7 +40,7 @@ const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
               ></span>
             </span>
             <span class="font-medium tracking-wide">Disponible</span>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -110,7 +110,7 @@ const heroName = resume?.basics?.name ?? "Alberto Castañeiras";
           >
             <Image
               src={cvImage}
-              alt={`Currículum de ${heroName}`}
+              alt={`Currículum de Alberto Castañeiras`}
               class="h-full w-full object-cover"
               loading="lazy"
               decoding="async"
