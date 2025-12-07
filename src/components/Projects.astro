@@ -4,6 +4,9 @@ import { TAGS, type ProjectTag } from "@/data/projectTags";
 import ProjectItem from "@/components/ProjectItem.astro";
 
 import ProjectIcon from "@/icons/Project.astro";
+import cutterImage from "@/assets/cutter.webp";
+import homelabImage from "@/assets/homelab.webp";
+import dotfilesImage from "@/assets/dotfiles.webp";
 
 interface Project {
   title: string;
@@ -11,17 +14,39 @@ interface Project {
   image: string;
   tags: ProjectTag[];
   github: string;
-  link?: string;
+  url?: string;
 }
 
 const PROJECTS: Project[] = [
   {
-    title: "Cutter",
+    title: "cutter",
     description:
-      "✂️ A simple, fast URL shortener built with Go, HTMX and SQLite",
-    github: "https://github.com/vekio/cutter",
-    image: "/projects/1.webp",
+      "🔪 A lightweight, fast URL shortener built with Go, HTMX and SQLite",
+    image: cutterImage.src,
     tags: [TAGS.GO, TAGS.TEMPL, TAGS.HTMX, TAGS.TAILWINDCSS],
+    github: "https://github.com/vekio/cutter",
+    url: "https://cutter.vekio.dev/",
+  },
+  {
+    title: "homelab-infra",
+    description:
+      "🏡 IaC for my homelab: servers, VMs and self-hosted services automated with Terraform & Ansible",
+    image: homelabImage.src,
+    github: "https://github.com/vekio/homelab-infra",
+    tags: [
+      TAGS.TERRAFORM,
+      TAGS.DOCKER,
+      TAGS.ANSIBLE,
+      TAGS.TRAEFIK,
+      TAGS.CLOUDFLARE,
+    ],
+  },
+  {
+    title: "dotfiles",
+    description: "🗃️ Nix-based dotfiles and dev environment setup",
+    image: dotfilesImage.src,
+    github: "https://github.com/vekio/dotfiles",
+    tags: [TAGS.NIX],
   },
 ];
 ---
@@ -30,15 +55,14 @@ const PROJECTS: Project[] = [
   <div class="max-w-6xl mx-auto">
     <div class="mb-16">
       <h2 class="text-3xl font-bold flex items-center gap-x-4 mb-4">
-        <ProjectIcon class="size-6" />
-        Proyectos
+        <!-- <ProjectIcon class="size-6" /> -->
+        Projects
       </h2>
-      <p class="text-muted-foreground max-w-2xl">
-        Una selección de proyectos que demuestran mi experiencia en desarrollo
-        full-stack y diseño de interfaces de usuario.
-      </p>
+      <!-- <p class="text-muted-foreground max-w-2xl">
+        Una selección de proyectos...
+      </p> -->
     </div>
-    <div class="grid gap-8 lg:grid-cols-2">
+    <div class="flex flex-col gap-8">
       {PROJECTS.map((project) => <ProjectItem {...project} />)}
     </div>
   </div>
