@@ -12,14 +12,14 @@ export const primaryEmail = "alberto@vekio.dev";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "https://github.com/vekio/",
-    label: "GitHub",
-    icon: GithubIcon,
-  },
-  {
     href: "https://www.linkedin.com/in/alberto-castaneiras/",
     label: "LinkedIn",
     icon: LinkedInIcon,
+  },
+  {
+    href: "https://github.com/vekio/",
+    label: "GitHub",
+    icon: GithubIcon,
   },
   {
     href: `mailto:${primaryEmail}`,
