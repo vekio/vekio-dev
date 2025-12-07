@@ -1,11 +1,13 @@
 ---
 import { Image } from "astro:assets";
 
-import { SOCIAL_LINKS } from "@/data/socials";
+import { primaryEmail, SOCIAL_LINKS } from "@/data/socials";
 // import resume from "@resume";
 
 import Social from "@/components/Social.astro";
 import MapIcon from "@/icons/Map.astro";
+import MailIcon from "@/icons/Mail.astro";
+import ArrowRightIcon from "@/icons/ArrowRight.astro";
 
 import cvImage from "@/assets/portfolio.jpg";
 
@@ -21,26 +23,13 @@ import cvImage from "@/assets/portfolio.jpg";
   >
     <div class="space-y-8">
       <div class="space-y-3">
-        <h1 class="shimmer-text text-5xl font-bold text-balance lg:text-7xl">
-          Alberto Castañeiras
+        <h1 class="text-5xl font-bold text-balance lg:text-7xl">
+          👋 <span class="shimmer-text">Hey, I'm Alberto</span>
         </h1>
         <div class="flex flex-wrap items-center gap-3">
           <p class="text-xl text-muted-foreground lg:text-2xl">
-            Ingeniero de Software
+            <strong>Backend-focused</strong> Software Engineer
           </p>
-          <!-- <div
-            class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1.5 text-xs text-primary"
-          >
-            <span class="relative flex size-2.5">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60"
-              ></span>
-              <span
-                class="relative inline-flex size-2.5 rounded-full bg-primary"
-              ></span>
-            </span>
-            <span class="font-medium tracking-wide">Disponible</span>
-          </div> -->
         </div>
       </div>
 
@@ -48,48 +37,36 @@ import cvImage from "@/assets/portfolio.jpg";
         class="max-w-lg space-y-4 text-lg leading-relaxed text-muted-foreground"
       >
         <p>
-          👋 Buen diseño. Código limpio. Software que funciona. Curioso y en
-          aprendizaje constante, combino experiencia en desarrollo web con
-          <strong>.NET</strong>, <strong>Angular</strong> y BI con
-          <strong>Qlik</strong>.
+          💪🏼 Good design, clean code, and scalable systems.<br />
+          Strong in <strong>.NET</strong>, passionate about <strong>Go</strong>,
+          <strong>DevOps</strong>, and self-hosting. I also have experience with
+          <strong>Angular</strong> and <strong>BI with Qlik Sense</strong>,
+          giving me a full-stack perspective when needed.<br />
+          I experiment (and break things) in my <strong>homelab</strong> to understand
+          how systems really work.
         </p>
+
         <p>
-          Me apasionan <strong>Go</strong>, la automatización con
-          <strong>IA</strong> y el <strong>self-hosting</strong>. Mantengo un
-          <strong>homelab</strong> donde experimento, rompo cosas y aprendo cómo
-          funcionan de verdad.
+          Open to collaborating on interesting backend/infra projects or
+          discussing new opportunities.
         </p>
       </div>
 
-      {
-        /*
-        <div class="space-y-2">
-          <p class="text-sm font-medium text-muted-foreground">
-            Abierto a oportunidades:
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <div
-              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
-            >
-              <MapIcon class="size-4 text-primary" />
-              <span>Remote - España</span>
-            </div>
-            <div
-              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
-            >
-              <MapIcon class="size-4 text-primary" />
-              <span>Híbrido - Irlanda</span>
-            </div>
-            <div
-              class="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/50 border border-border rounded-lg text-sm"
-            >
-              <MapIcon class="size-4 text-primary" />
-              <span>Remote - Europa</span>
-            </div>
-          </div>
-        </div>
-      */
-      }
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={`mailto:${primaryEmail}`}
+          class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
+        >
+          Contact
+        </a>
+        <a
+          href="/#proyectos"
+          class="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-secondary px-6 py-3 text-base font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2"
+        >
+          View Projects
+          <ArrowRightIcon class="size-4" />
+        </a>
+      </div>
 
       <div class="flex flex-wrap items-center gap-3 pt-4">
         {SOCIAL_LINKS.map((social) => <Social {...social} />)}
